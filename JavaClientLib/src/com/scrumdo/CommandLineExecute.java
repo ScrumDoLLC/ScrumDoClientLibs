@@ -30,7 +30,7 @@ public class CommandLineExecute {
             )
         );
         cmdLn.addOption(
-                new CmdLnOption("authenticate",'a').setRequiredArgument().setDescription("User Resource").setListener(
+                new CmdLnOption("authenticate",'a').setRequiredArgument().setDescription("Authenticate").setListener(
                     new CmdLnListener(){
                         public void found(CmdLnResult result){
                             fileName = result.getArgument();

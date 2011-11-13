@@ -11,16 +11,12 @@ import java.net.URLConnection;
 import net.sf.json.JSONObject;
 
 public class ScrumDoServerInteract {
-    private static String username = "ajay_reddy";
-    private static String password = "imation";
    
 	private static String ENDPOINT = "http://scrumdo.com/api/v1/"; 
-	private static String developer_key = "bb5324d6ac86f3b0a32d89ebf5e1b441cbe7e687";
-	private static String user_key = null;	
 	private ScrumDoServerInteract() {}
 		
-	public static String callMethod(String method) throws IOException {
-		URL url = new URL(ENDPOINT +method+ "?developer_key=" + developer_key+ "&username=" + username+"&password=" + password + "&format=json");
+	public static String callMethod(String methodParamString) throws IOException {
+		URL url = new URL(ENDPOINT +methodParamString);
 		URLConnection connection = url.openConnection();
 		connection.addRequestProperty("X-WSSE", getHeader());
 		
@@ -47,17 +43,4 @@ public class ScrumDoServerInteract {
 	}
 	
 
-	public static void main(String[] args) throws IOException {
-	
-		String response = ScrumDoServerInteract.callMethod("login");
-		JSONObject jsonObj = JSONObject.fromObject(response);
-		System.out.println(jsonObj.toString());
-//		JSONArray jsonArry = JSONArray.fromObject(jsonObj.get("user_key"));
-//		
-//		for(int i = 0; i < jsonArry.size(); i++) {
-//			user_key = (String) JSONObject.fromObject(jsonArry.get(i)).get("user_key");
-//			System.out.println("User key: " +user_key );
-//			System.out.println();
-//		}
-	}
 }
