@@ -156,13 +156,24 @@ public class ScrumDoServerCommands
 		return team;
 	}
 
+	// updateStory
+	// updateTask
+	// updateProject
+	// updateIteration
+	// updateTeam
+	
+	// addStory
+	// addIteration
+	// addProject
+	// addTasks
+	// addComments
+	// addEpic
+
 	public static void main(String[] args) throws IOException 
 	{
 		
 //		System.out.println(login());
-    	
 		System.out.println(isKeyValid());
-
 
 	}
 
