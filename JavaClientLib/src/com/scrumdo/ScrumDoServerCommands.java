@@ -91,6 +91,16 @@ public class ScrumDoServerCommands
 		return response;
 	}
 	
+	public static String self() throws IOException
+	{
+		HashMap<String, String> params = new HashMap();
+		params.put("user_name", username);
+		String commandURL = constructCommandURL("user/self",params);
+		String response = ScrumDoServerInteract.callMethod(commandURL);
+		
+		return response;
+	}
+	
 	public static String login() throws IOException
 	{
 		String loginURL = constructLoginURL();
@@ -172,8 +182,8 @@ public class ScrumDoServerCommands
 	public static void main(String[] args) throws IOException 
 	{
 		
-//		System.out.println(login());
-		System.out.println(isKeyValid());
+		System.out.println(login());
+		System.out.println(self());
 
 	}
 
