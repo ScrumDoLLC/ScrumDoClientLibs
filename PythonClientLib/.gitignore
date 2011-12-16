@@ -1,0 +1,5 @@
+*.pyc
+*.egg-info
+.config
+env
+user_key
