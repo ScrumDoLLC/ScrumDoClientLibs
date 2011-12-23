@@ -1,4 +1,4 @@
-require_relative 'LoginController'
+require_relative 'ActionsController'
 
 module ScrumdoRuby
 	
@@ -14,7 +14,7 @@ module ScrumdoRuby
 		def execute
 			begin
 				commands=Commands.commands
-				control=LoginController.new
+				control=ActionsController.new
 				case @command
 					when "login"
 							control.login(@params.username,@params.password,@params.devkey)

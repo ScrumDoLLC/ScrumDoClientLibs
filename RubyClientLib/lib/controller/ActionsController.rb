@@ -4,7 +4,7 @@ require_relative '../model/Session'
 
 	
 module ScrumdoRuby
-	class LoginController
+	class ActionsController
 		attr_accessor :user_key
 		
 		def initialize
@@ -50,7 +50,7 @@ module ScrumdoRuby
 			begin
 				str =JSON.parse(File.open("user_key","r") {|io| io.read })
 			rescue Exception =>e
-				raise "User key file not found."
+				raise "User key file not found.Please login"
 			end
 		end
 		

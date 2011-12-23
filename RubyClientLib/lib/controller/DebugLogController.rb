@@ -1,4 +1,4 @@
-require_relative 'LoginController'
+require_relative 'ActionsController'
 module ScrumdoRuby
 	
 	class DebugLog
