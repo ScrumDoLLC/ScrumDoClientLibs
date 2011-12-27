@@ -1,0 +1,1 @@
+require 'rubygems'require 'rest_client'require 'json'require_relative 'lib/command/CommandsParser'require_relative 'lib/controller/CommandsController'require_relative 'lib/controller/DebugLogController'include ScrumdoRubyoptions = CommandsParser.parse(ARGV)DebugLog.verbosity(options.verbose)exec=CommandsController.new(options)exec.execute
