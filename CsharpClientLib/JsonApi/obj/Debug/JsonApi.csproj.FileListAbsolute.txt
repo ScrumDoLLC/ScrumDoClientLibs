@@ -1,0 +1,5 @@
+D:\Projects\Solutions\OM-Abhijit\JsonApi\JsonApi\bin\JsonApi.dll
+D:\Projects\Solutions\OM-Abhijit\JsonApi\JsonApi\bin\JsonApi.pdb
+D:\Projects\Solutions\OM-Abhijit\JsonApi\JsonApi\obj\Debug\ResolveAssemblyReference.cache
+D:\Projects\Solutions\OM-Abhijit\JsonApi\JsonApi\obj\Debug\JsonApi.dll
+D:\Projects\Solutions\OM-Abhijit\JsonApi\JsonApi\obj\Debug\JsonApi.pdb
