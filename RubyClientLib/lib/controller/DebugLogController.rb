@@ -1,4 +1,5 @@
 require_relative 'ActionsController'
+
 module ScrumdoRuby
 	
 	class DebugLog
