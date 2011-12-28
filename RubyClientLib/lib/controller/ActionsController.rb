@@ -1,7 +1,7 @@
 require_relative  '../model/User'
 require_relative 'UriController'
 require_relative '../model/Session'
-
+require 'json'
 	
 module ScrumdoRuby
 	class ActionsController
@@ -21,7 +21,6 @@ module ScrumdoRuby
 		
 		def login(username,password,dev_key)
 			user=User.new(username,password,dev_key)
-			DebugLog.print("Attempting to login")
 			response = RestClient.get ScrumdoURI.login_uri, {:params => user.to_hash}
 			result=JSON.parse(response.to_str)
 			if (result["key"])
@@ -46,7 +45,7 @@ module ScrumdoRuby
 			File.open("user_key", 'w') {|f| f.write(str.to_json) }  # write the user_key to a file
 		end
 		def read_auth_key
-			DebugLog.print("Reading auth key from saved file user_key")
+			DebugLog.print("Checking for saved session data..")
 			begin
 				str =JSON.parse(File.open("user_key","r") {|io| io.read })
 			rescue Exception =>e
@@ -55,55 +54,36 @@ module ScrumdoRuby
 		end
 		
 		def user_details
-			DebugLog.print("Request user details")
-			response=RestClient.get ScrumdoURI.user_details,{:params => parameters}
-			DebugLog.print_hash(response.to_str)
+			RestClient.get ScrumdoURI.user_details,{:params => parameters}
 		end
 		
 		def project_details(project_id)
-			DebugLog.print("Request project details")
-			response=RestClient.get ScrumdoURI.task_uri("project",project_id),{:params => parameters}
-			DebugLog.print_hash(response.to_str)
+			RestClient.get ScrumdoURI.task_uri("project",project_id),{:params => parameters}
 		end
 		
 		def iteration_details(iteration_id)
-			DebugLog.print("Request iteration details")
-			response=RestClient.get ScrumdoURI.task_uri("iteration",iteration_id),{:params => parameters}
-			DebugLog.print_hash(response.to_str)
+			RestClient.get ScrumdoURI.task_uri("iteration",iteration_id),{:params => parameters}
 		end
 		
 		def epic_details(epic_id)
-			DebugLog.print("Request Epic details")
-			response=RestClient.get ScrumdoURI.task_uri("epic",epic_id),{:params => parameters}
-			DebugLog.print_hash(response.to_str)
+			RestClient.get ScrumdoURI.task_uri("epic",epic_id),{:params => parameters}
 		end
 		
 		def story_details(story_id)
-			DebugLog.print("Request Story details")
-			response=RestClient.get ScrumdoURI.task_uri("story",story_id),{:params => parameters}
-			DebugLog.print_hash(response.to_str)
+			RestClient.get ScrumdoURI.task_uri("story",story_id),{:params => parameters}
 		end
 		def task_details(task_id)
-			DebugLog.print("Request task details")
-			response=RestClient.get ScrumdoURI.task_uri("task",task_id),{:params => parameters}
-			DebugLog.print_hash(response.to_str)
+			RestClient.get ScrumdoURI.task_uri("task",task_id),{:params => parameters}
 		end
 		def org_details(org_id)
-			DebugLog.print("Request organization details")
-			response=RestClient.get ScrumdoURI.task_uri("organization",org_id),{:params => parameters}
-			DebugLog.print_hash(response.to_str)
+			RestClient.get ScrumdoURI.task_uri("organization",org_id),{:params => parameters}
 		end
 		def team_details(team_id)
-			DebugLog.print("Request Team details")
-			response=RestClient.get ScrumdoURI.task_uri("team",team_id),{:params => parameters}
-			DebugLog.print_hash(response.to_str)
+			RestClient.get ScrumdoURI.task_uri("team",team_id),{:params => parameters}
 		end
 		
 		def news_feed
-			DebugLog.print("Request news feed")
-			response=RestClient.get ScrumdoURI.newsfeed,{:params => parameters}
-			DebugLog.print_hash(response.to_str)
-		
+			RestClient.get ScrumdoURI.newsfeed,{:params => parameters}
 		end
 		
 		
