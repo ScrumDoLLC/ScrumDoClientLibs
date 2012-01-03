@@ -4,7 +4,7 @@ import slumber
 import re
 
 API_VERSION="v1"
-BASE_URL="http://localhost:8000/"
+BASE_URL="http://www.scrumdo.com/"
 DEVELOPER_API_KEY=""
 
 import logging

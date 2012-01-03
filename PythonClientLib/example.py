@@ -44,22 +44,6 @@ def main():
         post_scrum_log(options.username, options.project_id, options.message, options.category, options.related_iteration_id, options.flagged, options.message_type)
     else:
         parser.print_help()
-
-        # creator = models.ForeignKey(User, null=True)
-        # project = models.ForeignKey("projects.Project", related_name="log_items" )
-        # date = models.DateTimeField(auto_now_add=True )
-        # message = models.TextField()
-        # 
-        # # The type of the message.
-        # #   TYPE_NOTE, TYPE_SOURCE_CONTROL    
-        # message_type = models.IntegerField()
-        # 
-        # category = models.CharField(max_length=32, default="Status Update")
-        # related_iteration = models.ForeignKey("projects.Iteration", null=True)
-        # 
-        # # The icon to use
-        # icon = models.IntegerField(default=1)        
-        # flagged = models.BooleanField(default=False)
         
 def login(username, password, api_key):
     key = scrumdo.login(username, password, api_key)
